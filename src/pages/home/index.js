@@ -30,9 +30,7 @@ class Home extends Component {
                     <img src={logo} className={s['App-logo']} alt="logo"/>
                     <h1 className={s['App-title']}><Link to={'login'}>Welcome to React</Link></h1>
                 </header>
-                <p className={s['App-intro']}>
-                    To get started, edit <Button>src/pages/home/home.js</Button> and save to reload.
-                </p>
+                <Button>src/pages/home/home.js</Button>
             </div>
         );
     }

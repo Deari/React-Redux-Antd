@@ -3,7 +3,7 @@ export default (store) => ({
     indexRoute: {
         getComponents(nextState, cb) {
             require.ensure([], (require) => {
-                cb(null, require('../../pages/login/index').default)
+                cb(null, require('../../pages/login').default)
             })
         }
     },

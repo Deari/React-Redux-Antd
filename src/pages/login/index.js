@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './index.scss'
+import s from './index.scss'
 import {Link} from "react-router";
 import * as actions from '../../redux/Login/actions';
 import {connect} from 'react-redux';
@@ -19,7 +19,7 @@ class Login extends Component {
         console.log(this.props);
         return (
             <div>
-                <span className={'login'}>Login</span>
+                <span className={s.login}>Login</span>
                 <Link to={'/'}>主页</Link>
             </div>
         )
