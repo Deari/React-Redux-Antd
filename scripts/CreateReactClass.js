@@ -164,7 +164,7 @@ const createComponent = ({path, fileData}) => {
 
 try {
     createComponent(reactData);
-    createComponent(reduxData);
+    redux && createComponent(reduxData);
 } catch (e) {
     console.log(e)
 }
