@@ -103,10 +103,25 @@
     "/api/v1": {
       "target": "https://cnodejs.org",
       "secure": false
+    },
+    "/data/resume.json": {
+      "target": "http://femock.lietou.com/",
+      "changeOrigin": true
+    },
+    "/calendar/": {
+      "target": "http://efficiency.lietou.com",
+      "secure": false,
+      "changeOrigin": true
+    },
+    "/project/": {
+      "target": "http://10.10.102.100",
+      "secure": false,
+      "changeOrigin": true
     }
   },
   "theme": false,
   "devDependencies": {
+    "axios": "^0.17.1",
     "cssnano": "^3.10.0",
     "debug": "^3.1.0",
     "less": "^2.7.3",

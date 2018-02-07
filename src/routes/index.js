@@ -1,4 +1,5 @@
 import Login from './Login'
+import EffectiveManagement from './EffectiveManagement'
 
 const createRoutes = (store) => ({
     path: '/',
@@ -12,7 +13,9 @@ const createRoutes = (store) => ({
         }
     },
     childRoutes: [
-        Login(store)
+        Login(store),
+        EffectiveManagement(store)
+
     ]
 });
 

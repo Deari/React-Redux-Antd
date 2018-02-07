@@ -2,20 +2,28 @@
  * Created by lizhuo on 2017/8/15.
  */
 
-const path = require("path")
+const fs = require("fs");
 let name;
 let redux;
-let reactUrl = process.cwd() + '/src/pages';
-let reduxUrl = process.cwd() + '/src/redux';
+let dir;
+const original = JSON.parse(process.env.npm_config_argv).original
 try {
-    name = JSON.parse(process.env.npm_config_argv).original.slice(2)[0];
-    redux = JSON.parse(process.env.npm_config_argv).original.slice(3)[0];
+    name = original.slice(2)[0];
+    dir = original.slice(3)[0] || 'pages';
+    redux = original.slice(4)[0];
 } catch (e) {
     name = process.argv.slice(2)[0];
-    redux = process.argv.slice(3)[0];
+    redux = process.argv.slice(4)[0];
 }
 
-const fs = require("fs")
+let reactUrl = process.cwd() + `/src/${dir}`;
+let reduxUrl = process.cwd() + '/src/redux';
+
+if (!name) {
+    console.log('please check name');
+    return false
+}
+
 const reactData = {
     "path": reactUrl + '/' + name,
     "name": name,
@@ -34,7 +42,7 @@ import React from 'react'
 import s from './index.scss'
 import cx from 'classnames'
 ${redux ? `
-import * as actions from '../../redux/Login/actions';
+import * as actions from '../../redux/${name}/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';` : ''}
 
@@ -61,7 +69,7 @@ class ${name} extends React.Component {
   }
 }
 
-${!redux ? 'export default ${name};' :
+${!redux ? `export default ${name};` :
                 `
 const mapStateToProps = ({${name.toLowerCase()}}) => ({...${name.toLowerCase()}});
 
