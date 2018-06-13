@@ -1,5 +1,7 @@
 {
-  "name": "v5",
+  "name": "{{name}}",
+  "description": "{{description}}",
+  "author": "{{author}}",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
